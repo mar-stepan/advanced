@@ -2,6 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
+// firebase
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {firebaseConfig} from '../../environments/firebase';
+
+// shared
+import {SharedModule} from './shared/shared.module';
+
 export const ROUTES: Routes = [
   {
     path: 'auth',
@@ -16,7 +25,11 @@ export const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    SharedModule.forRoot()
   ]
 })
 export class AuthModule { }
