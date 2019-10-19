@@ -16,7 +16,9 @@ import {NavComponent} from './components/nav/nav.component';
 
 
 
-export const ROUTES: Routes = [];
+export const ROUTES: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'schedule'}
+];
 
 @NgModule({
   declarations: [
